@@ -39,8 +39,8 @@ export default {
         .then(response => response.json())
         .then(({a, b}) => {
           this.data.push({
-            x: Object.values(a),
-            y: Object.values(b),
+            x: a,
+            y: b,
             type: 'scatter', mode: 'markers',
           })
         });

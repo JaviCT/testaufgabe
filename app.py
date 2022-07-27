@@ -19,12 +19,11 @@ def get_df():
     """
     random_data = np.random.randint(0, 100, size=1000)
     mod = np.array([s % 10 for s in random_data])
-
     d = {'a': random_data, 'b': mod}
     df = pd.DataFrame(data=d)
-    result = df.to_json(orient="columns")
-    parsed = json.loads(result)
-    return json.dumps(parsed, indent=4)
+    [a, b] = df.T.values.tolist()
+    data = {'a': a, 'b': b}
+    return json.dumps(data, indent=4)
 
 
 @app.route('/', defaults={'path': ''})
