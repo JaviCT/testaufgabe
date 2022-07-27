@@ -6,8 +6,9 @@
       </b-row>
       <b-row class="text-center pt-4" align-h="center">
         <b-card class="ma-2 pa-2 h-100 w-75">
-          <Plotly :data="data" :layout="layout" :display-mode-bar="false" class="mb-3"></Plotly>
-          <b-button @click="loadContent()" variant="primary">Load Chart</b-button>
+          <b-card-title>{{title}}</b-card-title>
+          <Plotly v-if="data.length" :data="data" :layout="layout" :display-mode-bar="true" class="mb-3"></Plotly>
+          <b-button :disabled="data.length > 0" @click="loadContent()" variant="primary">Load Chart</b-button>
         </b-card>
       </b-row>
     </b-container>
@@ -24,9 +25,27 @@ export default {
   },
   data() {
     return {
+      title: "This is the demo for JCB",
       data:[],
       layout:{
-        title: "This is the demo for JCB"
+        showLegend: false,
+        title: "1000 random numbers and its modules 10",
+        xaxis: {
+          title: {
+            text: 'Randon Number',
+            font: {
+              size: 18,
+            }
+          },
+        },
+        yaxis: {
+          title: {
+            text: 'Module 10',
+            font: {
+              size: 18,
+            }
+          }
+        }
       },
     }
   },
