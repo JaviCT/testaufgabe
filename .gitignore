@@ -1,7 +1,11 @@
 # Python
 __pycache__
-backend/venv
+server/venv
 *.pyc
 
 # intellij configs
 .idea
+
+#vuejs
+client/node_modules/
+dist/
